@@ -1,31 +1,39 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Form from 'react-bootstrap/Form';
+import '../index.css'
 
-const Formulario = () => {
-return (
-    <div className="container border my-3">
-    <Form>
-       <Form.Group className="mb-3 d-flex py-3">
-        <Form.Label>Buscar por categoría</Form.Label>
-        <Form.Select>
-           <option value="">Options</option>
-            <option value="business<">business</option>
-            <option value="entertainment">entertainment</option>
-            <option value="environment">environment</option>
-            <option value="food">food</option>
-            <option value="health">health</option>
-            <option value="politics">politics</option>
-            <option value="science">science</option>
-            <option value="sports">sports</option>
-            <option value="technology">technology</option>
-            <option value="top">top</option>
-            <option value="world">world</option>
-        </Form.Select>
-      </Form.Group>
-    </Form>
-    </div>
-  );
+function Formulario({active, setActive, setCategory}) {
+
+const links = [
+    {id: 1, name: "General", value: "general"},
+    {id: 2, name: "Business", value: "business"},
+    {id: 3, name: "Entertainment", value: "entertainment"},
+    {id: 4, name: "Health", value: "health"},
+    {id: 5, name: "Science", value: "science"},
+    {id: 6, name: "Sports", value: "sports"},
+    {id: 7, name: "Technology", value: "technology"},
+]
+
+function onClick(id, value){
+    setActive(id)
+    setCategory(value)
+}
+
+    return (
+        
+         <nav className="menu">
+            <ul>
+            {links.map(link =>(
+            <li
+            key={link.id}
+            className={active === link.id ? "active": "inactive"}
+            onClick={()=> onClick(link.id, link.value)}
+            >
+                {link.name}
+            </li>
+            ))}
+            </ul>
+        </nav>
+    );
 }
 
 export default Formulario;
