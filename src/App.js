@@ -11,7 +11,7 @@ function App() {
   const [category, setCategory] =useState("general")
 
 useEffect(() =>{
-fetch(`https://newsapi.org/v2/top-headlines?country=us&category=${category}&apiKey=0d185c712a894878810d8008dd05e388`)
+fetch(`https://newsdata.io/api/1/news?apikey=pub_12086b0faa89ff9d9a6ebe9648066bdfb81eb&q=pegasus&language=en`)
 .then(res => res.json())
 .then(data => setItems(data.articles))
 }, [category])
