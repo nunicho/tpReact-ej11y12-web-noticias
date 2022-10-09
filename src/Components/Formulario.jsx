@@ -1,7 +1,20 @@
 import React from 'react';
 import '../index.css'
 
-function Formulario({active, setActive, setCategory}) {
+function Formulario({active, setActive, setCountry, setCategory}) {
+
+const linksCountry = [
+    {id: 10, name: "Argentina", value: "ar"},
+    {id: 11, name: "Estados Unidos", value: "us"},
+    {id: 12, name: "México", value: "mx"},
+    {id: 13, name: "Brazil", value: "br"},
+
+]
+
+function onClickCountry(id, value){
+    setActive(id)
+    setCountry(value)
+}
 
 const links = [
     {id: 1, name: "General", value: "general"},
@@ -18,8 +31,22 @@ function onClick(id, value){
     setCategory(value)
 }
 
+
     return (
-        
+        <div>
+            <nav className="menu">
+            <ul>
+            {linksCountry.map(link =>(
+            <li
+            key={link.id}
+            className={active === link.id ? "active": "inactive"}
+            onClick={()=> onClickCountry(link.id, link.value)}
+            >
+                {link.name}
+            </li>
+            ))}
+            </ul>
+        </nav>
          <nav className="menu">
             <ul>
             {links.map(link =>(
@@ -33,6 +60,7 @@ function onClick(id, value){
             ))}
             </ul>
         </nav>
+        </div>
     );
 }
 

@@ -5,6 +5,7 @@ function Noticia({item}) {
 const websiteUrl = item.url
 const website = websiteUrl.split('https://').pop().split('/')[0]
 
+
 const date = item.publishedAt
 const formatDate = date.replace('T', ' ')
 const formatTime = formatDate.replace ('Z', ' ')
@@ -25,6 +26,12 @@ const formatTime = formatDate.replace ('Z', ' ')
         <p className="article-description">
                 {item.description}
         </p>
+        <div>
+        <small><b>Origin: </b> {item.country}</small> 
+        </div>
+        <div>
+        <small><b>Author: </b> {item.author}</small> 
+        </div>
         <div className="article-details">
         <small><b>Published At: </b> {formatTime}</small>
         </div>
