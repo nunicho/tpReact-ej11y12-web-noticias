@@ -26,14 +26,11 @@ const formatTime = formatDate.replace ('Z', ' ')
         <p className="article-description">
                 {item.description}
         </p>
-        <div>
-        <small><b>Origin: </b> {item.country}</small> 
-        </div>
-        <div>
-        <small><b>Author: </b> {item.author}</small> 
+         <div>
+        <small><b>Autor: </b> {item.author}</small> 
         </div>
         <div className="article-details">
-        <small><b>Published At: </b> {formatTime}</small>
+        <small><b>Fecha de publicación: </b> {formatTime}</small>
         </div>
      </a>
     );

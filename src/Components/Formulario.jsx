@@ -28,12 +28,12 @@ const [selected, setSelected] = useState(options[0].value);
 
 const links = [
     {id: 1, name: "General", value: "general"},
-    {id: 2, name: "Business", value: "business"},
-    {id: 3, name: "Entertainment", value: "entertainment"},
-    {id: 4, name: "Health", value: "health"},
-    {id: 5, name: "Science", value: "science"},
-    {id: 6, name: "Sports", value: "sports"},
-    {id: 7, name: "Technology", value: "technology"},
+    {id: 2, name: "Negocios", value: "business"},
+    {id: 3, name: "Entretenimiento", value: "entertainment"},
+    {id: 4, name: "Salud", value: "health"},
+    {id: 5, name: "Ciencia", value: "science"},
+    {id: 6, name: "Deportes", value: "sports"},
+    {id: 7, name: "Tecnología", value: "technology"},
 ]
 
 
