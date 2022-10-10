@@ -1,20 +1,30 @@
 import React from 'react';
 import '../index.css'
+import {useState} from 'react'
+import { FormSelect } from 'react-bootstrap';
+
 
 function Formulario({active, setActive, setCountry, setCategory}) {
 
-const linksCountry = [
-    {id: 10, name: "Argentina", value: "ar"},
-    {id: 11, name: "Estados Unidos", value: "us"},
-    {id: 12, name: "México", value: "mx"},
-    {id: 13, name: "Brazil", value: "br"},
 
+const options = [
+
+    {value: "..", text: 'Elige un país.'},
+    {value: "ar", text: 'Argentina'},
+    {value: "us", text: 'Estados Unidos'},
+    {value: "mx", text: 'México'},
+    {value: "br", text: 'Brasil'},
 ]
 
-function onClickCountry(id, value){
-    setActive(id)
-    setCountry(value)
-}
+const [selected, setSelected] = useState(options[0].value);
+
+  const handleChange = event => {
+    console.log(event.target.value);
+    setSelected(event.target.value);
+    setCountry(event.target.value)
+  };
+
+
 
 const links = [
     {id: 1, name: "General", value: "general"},
@@ -26,39 +36,39 @@ const links = [
     {id: 7, name: "Technology", value: "technology"},
 ]
 
+
+
 function onClick(id, value){
     setActive(id)
+    console.log(value)  
     setCategory(value)
 }
 
 
     return (
         <div>
-            <nav className="menu">
-            <ul>
-            {linksCountry.map(link =>(
-            <li
-            key={link.id}
-            className={active === link.id ? "active": "inactive"}
-            onClick={()=> onClickCountry(link.id, link.value)}
-            >
-                {link.name}
-            </li>
-            ))}
-            </ul>
-        </nav>
+            <div>
+                <FormSelect value={selected} onChange={handleChange}>
+                {options.map(option => (
+                 <option key={option.value} value={option.value}>
+                 {option.text}
+                  </option>
+                 ))}
+                </FormSelect>
+             </div>    
+               
+          
          <nav className="menu">
-            <ul>
-            {links.map(link =>(
-            <li
-            key={link.id}
-            className={active === link.id ? "active": "inactive"}
-            onClick={()=> onClick(link.id, link.value)}
-            >
-                {link.name}
-            </li>
-            ))}
-            </ul>
+                <ul>
+                    {links.map(link =>(
+                    <li
+                    key={link.id}
+                    className={active === link.id ? "active": "inactive"}
+                    onClick={()=> onClick(link.id, link.value)}>
+                    {link.name}
+                    </li>
+                    ))}
+                </ul>
         </nav>
         </div>
     );
