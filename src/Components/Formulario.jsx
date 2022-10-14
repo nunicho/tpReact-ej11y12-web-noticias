@@ -9,11 +9,11 @@ function Formulario({active, setActive, setCountry, setCategory}) {
 
 const options = [
 
-    {value: "..", text: 'Elige un país.'},
-    {value: "ar", text: 'Argentina'},
-    {value: "us", text: 'Estados Unidos'},
-    {value: "mx", text: 'México'},
-    {value: "br", text: 'Brasil'},
+    {value: "..", text: 'ELIGE UN PAIS'},
+    {value: "ar", text: 'ARGENTINA'},
+    {value: "us", text: 'ESTADOS UNIDOS'},
+    {value: "mx", text: 'MÉXICO'},
+    {value: "br", text: 'BRASIL'},
 ]
 
 const [selected, setSelected] = useState(options[0].value);
@@ -50,9 +50,11 @@ function onClick(id, value){
             <div>
                 <FormSelect value={selected} onChange={handleChange}>
                 {options.map(option => (
-                 <option key={option.value} value={option.value}>
+                
+                 <option className ="text-center w-25" key={option.value} value={option.value}>
                  {option.text}
                   </option>
+                
                  ))}
                 </FormSelect>
              </div>    
