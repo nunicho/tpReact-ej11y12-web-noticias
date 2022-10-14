@@ -26,7 +26,7 @@ const mostrarComponente = (mostrarSpinner === true) ? (<Spinner></Spinner>):(<Li
 
 
 return (
-    <div className="App">
+    <div className="App ">
     <Titulo></Titulo>
     <Formulario active={active} setActive={setActive} setCountry={setCountry} setCategory={setCategory}/>
     {mostrarComponente}

@@ -60,7 +60,7 @@ function onClick(id, value){
              </div>    
                
           
-         <nav className="menu">
+         <nav className="menu text-center">
                 <ul>
                     {links.map(link =>(
                     <li
